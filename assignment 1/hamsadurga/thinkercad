@@ -1,0 +1,35 @@
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(8, OUTPUT);
+  pinMode(A0, INPUT);
+  pinMode(2, OUTPUT);
+  pinMode(7, INPUT);
+  pinMode(4, OUTPUT);
+}
+
+void loop()
+{
+  if (digitalRead(7) == 1) {
+    tone(4, 523, 1000); // play tone 60 (C5 = 523 Hz)
+  } else {
+    noTone(4);
+  }
+  delay(10); // Delay a little bit to improve simulation performance
+
+
+  int temp = analogRead(A0);
+
+  if (temp>50)
+  {
+    tone(8, 1000); 
+    digitalWrite(2, HIGH);
+    delay(2500);
+  }
+  else
+  {
+    noTone(8);     
+    digitalWrite(2,LOW);
+    delay(2500);
+  }
+}
