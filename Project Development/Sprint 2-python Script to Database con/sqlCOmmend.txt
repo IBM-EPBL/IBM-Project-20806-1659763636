@@ -1,0 +1,25 @@
+----------------------Create Database
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="myusername",
+  password="mypassword"
+)
+mycursor = mydb.cursor()
+mycursor.execute("CREATE DATABASE DusbinDatabase")
+
+
+------------------Create table 
+
+CREATE TABLE `dsbn` (
+  `dusId` int NOT NULL DEFAULT '1',
+  `dusLevel` int NOT NULL DEFAULT '0',
+  `dusDistic` varchar(120) NOT NULL DEFAULT 'Covai',
+  `dusLocation` varchar(100) NOT NULL DEFAULT 'south street ,kk nagar '
+);
+
+
+----------------- Update the tables values
+
+ sql = "UPDATE dsbn SET dusLevel = "+str(dusbinLevelInper)+" WHERE dusId = '1'"
+
