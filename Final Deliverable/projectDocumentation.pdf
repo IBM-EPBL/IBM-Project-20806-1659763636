@@ -1,0 +1,507 @@
+
+ 
+ 
+ 
+Project Report Format
+INTRODUCTION 
+Project Overview 
+                 The behaviour of generating garbage is too dangerous not only for today's generation, but also for future generations. It is critical to educate people and encourage them to practise Recycle, Reuse, and Reduce instead of producing waste. Waste disposal should be a priority for municipalities and governments
+Purpose 
+                         Smart waste management is about using technology and data to create a more efficient waste industry. Based on IoT (Internet of Things) technology, smart waste management aims to optimize resource allocation, reduce running costs, and increase the sustainability of waste services.
+
+LITERATURE SURVEY
+Existing problem 
+References 
+Problem Statement Definition 
+IDEATION & PROPOSED SOLUTION
+Empathy Map Canvas
+Ideation & Brainstorming
+Proposed Solution
+Problem Solution fit
+REQUIREMENT ANALYSIS
+Functional requirement
+Non-Functional requirements
+
+PROJECT DESIGN
+Data Flow Diagrams
+
+
+ 
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+b. Solution & Technical Architecture
+                     
+Table -1: Components & Technologies
+ 
+ 
+ 
+S.No
+Components
+Description
+Technology
+1.
+User
+Interface
+Web Portal
+HTML,CSS,NodeRed,
+Javascript.
+2.
+Application
+Logic-1
+To calculate the
+distance of dreck and show the real time level in web portal , information getting via ultra sonic sensor and the alert messageactivate with python script to web portal.
+Ultrasonic sensor/
+Python.
+3.
+Application
+Logic-2
+ 
+ 
+It make simple Awareness to People, identify The dustbin range
+Led/Python
+4.
+Application
+Logic-3
+Getting location of the dustbin
+Using id
+5.
+Cloud
+Database
+Database Service on
+cloud.
+IBM DB2, IBM
+Cloudant etc..
+6.
+File
+Storage
+File Storage
+requirements.
+GitHub, Local file
+System.
+
+ 
+7.                             
+ 
+ 
+DATABSE
+It ofers rdbms And dbms Mysql
+Mango db Nosql etc..
+ 
+8.
+Ultrasonic
+Sensor.
+To throw alert
+Msg when garbage
+.Is getting full
+Distance Recognition Model.
+Distance Recognition
+Model.
+9.
+Infrastructure
+(Server/Cloud).
+Application
+Deploymnt on Local System / Cloud Local Server Configuration: lo Cloud Server Configuration: lo, Firebox
+Localhost, Web portal.
+ 
+ 
+Table-2: Application Characteristics:
+ 
+S No
+Characteristics
+Description
+Technology
+1.
+Open -Source Framework
+NodeRed,Python,IBM
+Simulator.
+Iot.
+2.
+Security Implementation
+Raspberry Pi is connected to
+the internet and for example used to broadcast live data,further security measures are recommended and use the UFW(uncomplicated Firewall).
+Iot.
+3.
+Scalable Architecture
+Raspberry pi:Specifications
+Soc: rspi ZERO W
+CPU: 32-bit computer with a 1 GHz ARMv6
+RAM: 512MB
+Iot.
+
+ 
+ 
+Networking: Wi-Fi
+Bluetooth: Bluetooth 5.0, Bluetooth Low Energy (BLE). Storage: MicroSD
+GPIO: 40-pin GPIO header, populated
+Ports: micro HDMI 2.0, 3.5mm analogue audiovideo jack,2x USB 2.0, 2x USB 3.0,
+Ethernet Dimensions: 88mm x 58mm x 19.5mm, 46g
+ 
+4.
+Availability
+These smart bins use sensors
+like ultrasonic and load cell to send alert message about the trashlevel recognition technology, and artificial intelligence, enabling them to automatically sort and categorize recycling litter into one of its smaller bin.
+Iot.
+5.
+Performance
+Number of request:RPI
+manages to execute 129-139read requests per second.Use of Cache:512mb Use of CDN’s:Real time
+Iot/web portal.
+ 
+
+
+c. Customer Journey Map
+
+
+
+
+PROJECT PLANNING & SCHEDULING
+Sprint Planning & Estimation
+                 
+S.NO
+ 
+ACTIVITY TITLE
+ 
+ACTIVITY DESCRIPTION
+DURATION
+1
+Understanding
+the project requirement
+Assign the teammembers and
+create repository in the Github, Assign the task to each membersand teach how to use and open and class the Github and IBM career education
+ 
+ 
+1 WEEK
+2
+Starting of
+project
+Advice students to attend
+classes of IBM portal create and develop an roughdiagram based on project decription and gather of information on IOT and IBM project and team leader assign task to each member of the project
+ 
+ 
+ 
+2 WEEK
+3
+Attend class
+Team members andteam lead
+must watch and learn from classes provided by IBM and NALAYATHIRAN and must gain
+ 
+ 
+4 WEEK
+
+ 
+ 
+access of MIT licensefor their
+project
+ 
+4
+Budget and
+scope of project
+Budget and analyze the use of
+IOT in the project and discuss with team for budget prediction to predict the favourability for the customer tobuy
+ 
+ 
+1 WEEK
+ 
+
+ 
+
+ 
+
+Sprint Delivery Schedule
+   
+ 
+Sprint
+Functional Requirement (Epic)
+User Story Number
+User Story / Task
+Story Points
+Priority
+Team Members
+Sprint-1
+Hardware
+USN-1
+Connecting sensors with rasberry pi And monitoring the hardware status
+2
+High
+Sri Janani
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Sprint-2
+Database management
+USN-2
+The sensors datawill upload on the cloudManage the sql queries
+2
+Low
+Hamsa Durga
+Sprint-3
+Alert notification
+USN-3
+With a helpof smtp to send the notification
+2
+Medium
+Mouli shankar
+Sprint-4
+Web develop
+USN-4
+As a user, I can loginto the application by Entering email& password
+1
+High
+Jawahar s
+
+ 
+
+                
+
+CODING & SOLUTIONING (Explain the features added in the project along with code)
+Feature 1 : Sending mail to admin
+                    import RPi.GPIO as GPIO
+import yagmail
+import time
+import mysql.connector
+TRIG=21
+ECHO=20
+dusbinLevelInper=0
+
+confirmtion=0
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(TRIG,GPIO.OUT)
+GPIO.setup(ECHO,GPIO.IN)
+GPIO.setup(19, GPIO.OUT)
+
+def mailsender():
+    if(confirmtion==3):
+        mydb = mysql.connector.connect(
+
+            host="192.168.143.95",
+            user="root",
+            password="mysqlpassword",
+            database="IbmDataBase"
+        )
+        mycursor = mydb.cursor()
+
+        confirmtion=0
+        sql = "SELECT * FROM dsbn WHERE dusid =1"
+
+        mycursor.execute(sql)
+        myresult = mycursor.fetchall()
+
+        Frommailadress="from@gmail.com"
+        password="myapp password"
+
+        yag = yagmail.SMTP(Frommailadress,password)
+        yag.send("TO@gmail.com", 
+         "",
+         "Level of the dustbin is  "+str(myresult[0][1])+
+         "  locations of the dustbin  "+str(myresult[0][3])+" "+str(myresult[0][2])+"")
+
+        print("sended successfull")
+    else:
+        print(confirmtion)
+
+def DataBaseCon():
+
+    mydb = mysql.connector.connect(
+
+        host="192.168.143.95",
+        user="root",
+        password="mynewpassword",
+        database="IbmDataBase"
+    )
+    mycursor = mydb.cursor()
+
+    sql = "UPDATE dsbn SET dusLevel = "+str(dusbinLevelInper)+" WHERE dusId = '1'"
+    mycursor.execute(sql)
+    mydb.commit()
+
+    print(mycursor.rowcount, "record(s) affected")
+
+
+def ledblinkon():
+      GPIO.output(19, GPIO.HIGH)
+
+def ledblinkoff():
+      GPIO.output(19, GPIO.LOW)
+
+while True:
+    print("distance measurement in progress")
+    GPIO.output(TRIG,False)
+    print("waiting for sensor to settle")
+    time.sleep(0.2)
+    GPIO.output(TRIG,True)
+    time.sleep(0.00001)
+    GPIO.output(TRIG,False)
+    while GPIO.input(ECHO)==0:
+        pulse_start=time.time()
+    while GPIO.input(ECHO)==1:
+        pulse_end=time.time()
+    pulse_duration=pulse_end-pulse_start
+    distance=pulse_duration*17150
+    distance=round(distance,2)
+    print("distance:",distance,"cm")
+    time.sleep(2)
+
+
+    if(distance>=60):
+        dusbinLevelInper=0
+        ledblinkoff()
+    elif(distance<=60 and distance>=45):
+        dusbinLevelInper=25
+        ledblinkoff()
+    elif(distance<=45 and distance>=30):
+        dusbinLevelInper=50
+        ledblinkoff()
+    elif(distance<=30 and distance>=10):
+        dusbinLevelInper=80
+        ledblinkoff()
+ 
+    else:
+        dusbinLevelInper=100
+        ledblinkon()
+        confirmtion+=1
+        mailsender()
+    DataBaseCon()
+    time.sleep(20)
+Feature 2 : datas are stored on database for data analatics
+     def DataBaseCon():
+
+    mydb = mysql.connector.connect(
+
+        host="192.168.143.95",
+        user="root",
+        password="mynewpassword",
+        database="IbmDataBase"
+    )
+    mycursor = mydb.cursor()
+
+    sql = "UPDATE dsbn SET dusLevel = "+str(dusbinLevelInper)+" WHERE dusId = '1'"
+    mycursor.execute(sql)
+    mydb.commit()
+
+    print(mycursor.rowcount, "record(s) affected")
+
+TESTING 
+Test Cases
+
+ 
+ 
+ 
+ 
+ 
+ 
+S.no
+Input
+Output
+Result
+1.
+Distance : 90
+Weight: 10
+Led : 0
+Led : Off
+Mail : Off
+DbUPdate : On
+passed
+2.
+Distance : 70
+Weight: 25
+Led : 0
+Led : Off
+Mail : Off
+DbUPdate : On
+passed
+3.
+Distance : 60
+Weight: 30
+Led : 0
+Led: Off
+Mail: Off
+DbUPdate : On
+passed
+4.
+Distance : 10
+Weight: 30
+Led : 1
+Led : On
+Mail : On
+DbUPdate : On
+passed
+5.
+Distance : 60
+Weight: 80
+Led : 1
+Led : On
+Mail : On
+DbUPdate : On
+passed
+
+
+RESULTS
+Performance Metrics
+
+
+ADVANTAGES 
+              1. Less time and fuel consumption as the trucks go only to the filled containers
+              2  Reducing manpower required to handle the garbage collection
+              3.The sensors installed in the containers provide real time information on the fill level.
+This information helps determine when and where to prioritise collection.
+              4. Applying this technology to the city optimises management, resources and costs, and
+makes it a “SMART CITY"
+
+ DISADVANTAGES
+        1. Wireless technologies used in the system such as zigbee and wifi have shorter range and lower data speed. In RFID based
+     2. This results into high initial cost due to expensive smart dustbins compare to other methods
+         3. More components needed
+
+CONCLUSION
+         Due to the absence of sustainable waste management technology, the current waste disposal situation is likely to worsen. This work presents an enhanced solution to the problem of waste management by the littering of the garbage bins once they are full. The behaviour of generating garbage is too dangerous not only for today's generation, but also for future generations. It is critical to educate people and encourage them to practise Recycle, Reuse, and Reduce instead of producing waste. Waste disposal should be a priority for municipalities and governments.
+
+FUTURE SCOPE
+             To sum up, Waste management's future includes turning waste into energy, IoT-enabled practices, improvement in monitoring systems, data collection, and much more technology-based advancements
+APPENDIX
+Source Code
+import wiotp.sdk.device
+import time
+import random myConfig = {
+"identity": {
+"orgId": "oqmviy",
+"typeId": "NodeMCU", "deviceId":"12345"
+},
+"auth": {
+"token": "12345678"
+}
+}
+def myCommandCallback(cmd):
+print("Message received from IBM IoT Platform: %s" % cmd.data['command']) m=cmd.data['command']
+client = wiotp.sdk.device.DeviceClient(config=myConfig, logHandlers=None) client.connect()
+while True: temp=random.randint(0,100) weight=random.randint(0,50)
+location="south street, kk nagar, covai" myData={'temperature':temp, 'weight':weight,'location':location} client.publishEvent(eventId="status", msgFormat="json",
+data=myData, qos=0, onPublish=None) print("Published data Successfully: %s", myData) client.commandCallback = myCommandCallback time.sleep(2)
+client.disconnect()
+GitHub Link : https://github.com/IBM-EPBL/IBM-Project-20806-1659763636
+ 
+ 
+ 
+
