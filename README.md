@@ -7,7 +7,7 @@ In this page we will be submitting the source code, assignments and other delive
 <h2><span>💡</span> Our Info...!! </h2>
 <table>
 <tr><th>About</th><th>To know</th></tr>
-<tr><td>Project Title</td><td>INDUSTRY-SPECIFIC INTELLIGENT FIRE MANAGMENT SYSTEM</td></tr>
+<tr><td>Project Title</td><td>Smart Waste Management System For Metropolitan Cities</td></tr>
 <tr><td>Project Category</td><td>Internet Of Things</td></tr>
 <tr><td>Team ID</td><td>666</td></tr>
 <tr><td>Team Size</td><td>4</td></tr>
