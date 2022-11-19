@@ -9,7 +9,7 @@ In this page we will be submitting the source code, assignments and other delive
 <tr><th>About</th><th>To know</th></tr>
 <tr><td>Project Title</td><td>Smart Waste Management System For Metropolitan Cities</td></tr>
 <tr><td>Project Category</td><td>Internet Of Things</td></tr>
-<tr><td>Team ID</td><td>666</td></tr>
+<tr><td>Team ID</td><td>PNT2022TMID42666</td></tr>
 <tr><td>Team Size</td><td>4</td></tr>
 <tr><td>College Name</td><td>Jansons institute of technology</td></tr></table>
 
